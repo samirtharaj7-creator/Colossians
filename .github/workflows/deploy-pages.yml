@@ -1,0 +1,80 @@
+name: Deploy Colossians Commentary to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate commentary
+        run: npm run validate
+
+      - name: Run TypeScript checks
+        run: npm run typecheck
+
+      - name: Run lint checks
+        run: npm run lint
+
+      - name: Build static export
+        run: npm run build
+        env:
+          NEXT_PUBLIC_SITE_URL: https://colossians.mybibleexplorer.com
+
+      - name: Verify deployment artifact
+        shell: bash
+        run: |
+          test -f out/index.html
+          test -f out/404.html
+          test -f out/.nojekyll
+          grep -Fxq "colossians.mybibleexplorer.com" out/CNAME
+          test -f out/background/index.html
+          test -f out/articles/index.html
+          for chapter in {1..4}; do
+            test -f "out/colossians/${chapter}/index.html"
+          done
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: ./out
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    timeout-minutes: 10
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,1886 @@
+/* Colossians illustrated theme: dark navy, warm gold, and serif-forward reading. */
+
+:root,
+.dark {
+  --background: #0e1f34;
+  --background-rgb: 14 31 52;
+  --foreground: #efe7d7;
+  --foreground-rgb: 239 231 215;
+  --card: #18273a;
+  --card-rgb: 24 39 58;
+  --card-foreground: #efe6d5;
+  --card-foreground-rgb: 239 230 213;
+  --muted: #1e2c3e;
+  --muted-rgb: 30 44 62;
+  --muted-foreground: #beb39d;
+  --muted-foreground-rgb: 190 179 157;
+  --border: #334357;
+  --border-rgb: 51 67 87;
+  --primary: #c9a34a;
+  --primary-rgb: 201 163 74;
+  --primary-foreground: #0a1829;
+  --primary-foreground-rgb: 10 24 41;
+  --accent: #22364f;
+  --accent-rgb: 34 54 79;
+  --accent-foreground: #d2b36a;
+  --accent-foreground-rgb: 210 179 106;
+  --ring: #c9a34a;
+  --crimson: #c9a34a;
+  --radius: .5rem;
+  --font-sans: "Jost", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "EB Garamond", Georgia, serif;
+  --font-display: "Cinzel", Georgia, serif;
+  --mbe-ink: #ece0c4;
+  --mbe-bg: #0e1f34;
+  --mbe-soft: #1e2c3e;
+  --mbe-muted: #beb39d;
+  --mbe-ivory: #18273a;
+  --mbe-rule: rgba(201, 164, 76, .18);
+  --mbe-navy: #ece0c4;
+  --mbe-gold-dark: #d2b36a;
+  --mbe-font-display: "Cinzel", Georgia, serif;
+  --mbe-font-reading: "EB Garamond", Georgia, serif;
+  --mbe-font-ui: "Jost", system-ui, sans-serif;
+}
+
+html,
+body,
+html.dark body,
+html.dark > body {
+  background:
+    linear-gradient(180deg, rgba(201, 164, 76, .08) 0%, rgba(201, 164, 76, 0) 18rem),
+    linear-gradient(180deg, #0d1c33 0%, #0b1f3a 54%, #081521 100%) !important;
+  color: var(--foreground) !important;
+}
+
+body {
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif !important;
+  font-feature-settings: "rlig" 1, "calt" 1;
+  font-synthesis-weight: none;
+  background-attachment: fixed !important;
+}
+
+::selection {
+  background: rgba(201, 164, 76, .35);
+  color: #fff6e4;
+}
+
+h1,
+h2,
+.home-showcase-copy h1,
+.home-section-split h2,
+.scripture-pane-header h1 {
+  font-family: "Cinzel", Georgia, serif !important;
+  letter-spacing: .015em !important;
+  line-height: 1.12 !important;
+}
+
+h3,
+h4,
+.home-chapter-group h3,
+.passage-outline-title,
+.exposition-card-heading h2,
+.verse-copy {
+  font-family: var(--font-serif), Georgia, serif !important;
+}
+
+.mbe-global-shell,
+.mbe-global-footer {
+  background: linear-gradient(180deg, #0e2138 0%, #0b1f3a 100%) !important;
+  border-color: rgba(201, 164, 76, .18) !important;
+  color: #b9ad90 !important;
+}
+
+.mbe-ribbon-brand {
+  color: #ece0c4 !important;
+}
+
+.mbe-ribbon-back::before {
+  background: rgba(201, 164, 76, .30) !important;
+}
+
+.mbe-ribbon-logo,
+.mbe-footer-logo {
+  filter: grayscale(1) brightness(0) invert(88%) sepia(18%) saturate(320%) hue-rotate(2deg);
+}
+
+.mbe-library-panel {
+  background: #12263f !important;
+  color: #ece0c4 !important;
+  border-color: rgba(201, 164, 76, .22) !important;
+  box-shadow: 0 26px 60px -30px rgba(0, 0, 0, .7) !important;
+}
+
+.mbe-library-item {
+  color: #ece0c4 !important;
+}
+
+.mbe-library-item:hover {
+  background: #17304c !important;
+}
+
+.mbe-library-item[aria-current="page"] {
+  background: rgba(201, 164, 76, .16) !important;
+}
+
+.mbe-library-name {
+  color: #f3e8cc !important;
+}
+
+.mbe-library-desc {
+  color: #b1a488 !important;
+}
+
+.mbe-footer-link {
+  color: #e0c37e !important;
+  border-bottom-color: rgba(201, 164, 76, .45) !important;
+}
+
+.mbe-footer-link:hover {
+  color: #fff2d4 !important;
+  border-bottom-color: #e0c37e !important;
+}
+
+.reader-header {
+  min-height: 4.35rem !important;
+  border-bottom: 1px solid rgba(201, 164, 76, .18) !important;
+  background: linear-gradient(180deg, rgba(14, 33, 56, .96), rgba(11, 31, 58, .96)) !important;
+  color: #ece0c4 !important;
+  box-shadow: 0 18px 44px -36px rgba(0, 0, 0, .82) !important;
+  backdrop-filter: blur(18px);
+}
+
+.reader-logo {
+  width: 2.25rem !important;
+  height: 2.25rem !important;
+  border: 1px solid rgba(201, 164, 76, .35) !important;
+  border-radius: .5rem !important;
+  background: rgba(201, 164, 76, .12) !important;
+  color: #d8b866 !important;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, .24) !important;
+}
+
+.reader-brand-text {
+  color: #f3e8cc !important;
+  font-family: "Cinzel", Georgia, serif !important;
+  font-size: .78rem !important;
+  font-weight: 600 !important;
+  letter-spacing: .18em !important;
+  text-transform: uppercase !important;
+}
+
+.reader-nav {
+  gap: clamp(1.5rem, 3.3vw, 3.2rem) !important;
+}
+
+.reader-menu-link,
+.reader-nav-link {
+  border-radius: 0 !important;
+  background: transparent !important;
+  color: #b9ad90 !important;
+  font-family: var(--font-sans), system-ui, sans-serif !important;
+  font-size: .72rem !important;
+  font-weight: 600 !important;
+  letter-spacing: .2em !important;
+  opacity: .56 !important;
+  padding: 0 !important;
+  text-transform: uppercase !important;
+}
+
+.reader-menu-link:hover,
+.reader-menu-link-active,
+.reader-nav-link:hover,
+.reader-nav-link-active,
+.dark .reader-nav-link-active,
+.dark .reader-menu-link-active {
+  background: transparent !important;
+  color: #fff2d4 !important;
+  opacity: 1 !important;
+}
+
+.home-showcase,
+.reader-page,
+.background-shell {
+  background:
+    linear-gradient(90deg, rgba(201, 164, 76, .05) 0 1px, transparent 1px),
+    linear-gradient(180deg, rgba(14, 33, 56, .96), rgba(8, 21, 33, .98)) !important;
+  background-size: 54px 100%, 100% 100% !important;
+}
+
+.home-showcase-hero {
+  min-height: clamp(29rem, 60vh, 38rem) !important;
+  padding-top: clamp(2.75rem, 5vh, 4rem) !important;
+}
+
+body[data-colossians-route="home"] .home-showcase {
+  background: linear-gradient(180deg, #0b1f3a 0%, #0e2138 44%, #0b1f3a 100%) !important;
+  background-size: 100% 100% !important;
+  padding-top: 0 !important;
+}
+
+html.dark body[data-colossians-route="home"] .home-showcase,
+html.dark body[data-colossians-route="home"] .home-showcase-shell {
+  background: linear-gradient(180deg, #0b1f3a 0%, #0e2138 44%, #0b1f3a 100%) !important;
+  background-size: 100% 100% !important;
+}
+
+body[data-colossians-route="home"] .home-showcase-shell {
+  width: 100% !important;
+  max-width: none !important;
+  padding-inline: 0 !important;
+}
+
+body[data-colossians-route="home"] .home-showcase-hero {
+  position: relative !important;
+  isolation: isolate;
+  overflow: hidden !important;
+  min-height: clamp(34rem, 68vh, 46rem) !important;
+  margin: 0 !important;
+  padding: clamp(4rem, 8vw, 7rem) clamp(2rem, 6vw, 6.5rem) clamp(3rem, 6vw, 5rem) !important;
+  border-bottom: 0 !important;
+  background: transparent !important;
+}
+
+body[data-colossians-route="home"] .home-showcase-hero::before,
+body[data-colossians-route="home"] .home-showcase-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 48%, rgba(0, 0, 0, .78) 68%, rgba(0, 0, 0, .34) 84%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 48%, rgba(0, 0, 0, .78) 68%, rgba(0, 0, 0, .34) 84%, transparent 100%);
+}
+
+body[data-colossians-route="home"] .home-showcase-hero::before {
+  z-index: -2;
+  background: url("/assets/colossians-hero-engraving.webp?v=mbe-20260715-1") center top / cover no-repeat;
+  filter: saturate(.86) contrast(1.08);
+  opacity: .96;
+}
+
+body[data-colossians-route="home"] .home-showcase-hero::after {
+  z-index: -1;
+  background:
+    radial-gradient(circle at 80% 28%, rgba(216, 184, 102, .18), rgba(216, 184, 102, 0) 28rem),
+    linear-gradient(90deg, rgba(8, 21, 33, .98) 0%, rgba(8, 21, 33, .86) 30%, rgba(8, 21, 33, .42) 62%, rgba(8, 21, 33, .72) 100%),
+    linear-gradient(180deg, rgba(8, 21, 33, .18), rgba(8, 21, 33, .88));
+}
+
+body[data-colossians-route="home"] .home-chapter-study {
+  position: relative;
+  z-index: 1;
+  width: min(calc(100% - clamp(2rem, 8vw, 6rem)), 92rem) !important;
+  margin-top: clamp(-3.5rem, -4vw, -2.25rem) !important;
+  margin-inline: auto !important;
+}
+
+body[data-colossians-route="home"] .home-section-split {
+  border-top: 0 !important;
+  padding-top: 1.5rem !important;
+}
+
+body[data-colossians-route="home"] .home-showcase-copy {
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 16px 34px rgba(0, 0, 0, .55);
+}
+
+body[data-colossians-route="introduction"] .background-hero {
+  position: relative !important;
+  isolation: isolate;
+  overflow: hidden !important;
+  border-bottom: 1px solid rgba(201, 164, 76, .18) !important;
+  background: #0b1f3a !important;
+}
+
+body[data-colossians-route="introduction"] .background-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background: url("/assets/colossians-hero-engraving.webp?v=mbe-20260715-1") center top / cover no-repeat;
+  filter: saturate(.82) contrast(1.08);
+  opacity: .66;
+}
+
+body[data-colossians-route="introduction"] .background-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(90deg, rgba(8, 21, 33, .97) 0%, rgba(8, 21, 33, .84) 48%, rgba(8, 21, 33, .66) 100%),
+    radial-gradient(circle at 80% 20%, rgba(216, 184, 102, .18), rgba(216, 184, 102, 0) 26rem);
+}
+
+body[data-colossians-route="introduction"] .background-hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+.home-showcase-copy h1 {
+  max-width: 9ch !important;
+  color: #f3e8cc !important;
+  font-size: clamp(3rem, 7vw, 7rem) !important;
+  font-weight: 600 !important;
+  text-shadow: 0 18px 44px rgba(0, 0, 0, .32);
+}
+
+.home-showcase-description,
+.home-section-split > p {
+  color: #b9ad90 !important;
+}
+
+.home-section-split {
+  border-color: rgba(201, 164, 76, .2) !important;
+}
+
+
+.home-section-kicker,
+.home-chapter-group > p,
+.home-chapter-mini-grid span,
+.reader-pane-kicker,
+.passage-outline-range {
+  color: #d8b866 !important;
+  font-family: var(--font-sans), system-ui, sans-serif !important;
+  letter-spacing: .24em !important;
+}
+
+.home-showcase-primary,
+.home-showcase-secondary {
+  min-height: 3rem !important;
+  border-radius: .375rem !important;
+  font-family: var(--font-sans), system-ui, sans-serif !important;
+  letter-spacing: .12em !important;
+}
+
+.home-showcase-primary {
+  border-color: #d8b866 !important;
+  background: #c9a44c !important;
+  color: #081521 !important;
+}
+
+.home-showcase-secondary {
+  border-color: rgba(201, 164, 76, .28) !important;
+  background: rgba(18, 38, 63, .78) !important;
+  color: #ece0c4 !important;
+}
+
+.home-showcase-primary:hover,
+.home-showcase-secondary:hover {
+  border-color: #e0c37e !important;
+  background: rgba(201, 164, 76, .18) !important;
+  color: #fff2d4 !important;
+}
+
+
+.home-chapter-group,
+.home-chapter-mini-grid a,
+.exposition-card,
+.verse-study-card {
+  border-color: rgba(201, 164, 76, .18) !important;
+  border-radius: .5rem !important;
+  background: rgba(18, 38, 63, .78) !important;
+  box-shadow: 0 20px 60px -44px rgba(0, 0, 0, .82) !important;
+}
+
+
+.home-chapter-mini-grid a:hover {
+  border-color: rgba(201, 164, 76, .45) !important;
+  background: rgba(23, 48, 76, .9) !important;
+}
+
+
+.home-chapter-group h3 {
+  color: #f3e8cc !important;
+  font-weight: 500 !important;
+}
+
+.reader-page {
+  --chapter-strip-height: 3.75rem !important;
+  min-height: calc(100vh - 4.35rem) !important;
+}
+
+.split-reader {
+  height: calc(100vh - 4.35rem - var(--chapter-strip-height)) !important;
+}
+
+.scripture-pane {
+  background: rgba(14, 33, 56, .86) !important;
+}
+
+.commentary-pane {
+  border-left: 1px solid rgba(201, 164, 76, .18) !important;
+  background: rgba(8, 21, 33, .88) !important;
+}
+
+.reader-pane-toolbar {
+  min-height: 4.1rem !important;
+  border-color: rgba(201, 164, 76, .18) !important;
+  background: rgba(11, 31, 58, .94) !important;
+  color: #b9ad90 !important;
+}
+
+.reader-pane-controls button {
+  border-color: rgba(201, 164, 76, .24) !important;
+  background: rgba(18, 38, 63, .72) !important;
+  color: #ece0c4 !important;
+}
+
+body[data-colossians-chapter] .scripture-pane-header {
+  position: relative !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+body[data-colossians-chapter] .scripture-pane-header > * {
+  position: relative;
+  z-index: 1;
+}
+
+.scripture-pane-header h1 {
+  color: #f3e8cc !important;
+  font-size: clamp(2.25rem, 3.2vw, 3rem) !important;
+  font-weight: 600 !important;
+}
+
+.scripture-chapter-summary,
+.commentary-reading {
+  color: rgba(236, 224, 196, .82) !important;
+}
+
+.scripture-pane-header::after {
+  background: rgba(201, 164, 76, .26) !important;
+  border-color: rgba(201, 164, 76, .22) !important;
+}
+
+.passage-outline-divider {
+  background: transparent !important;
+  border-color: rgba(201, 164, 76, .22) !important;
+}
+
+.scripture-card {
+  border-color: transparent !important;
+  border-radius: .5rem !important;
+  color: #ece0c4 !important;
+}
+
+.scripture-card:hover {
+  background: rgba(216, 184, 102, .08) !important;
+  transform: none !important;
+}
+
+.scripture-card-active {
+  border-color: rgba(201, 164, 76, .42) !important;
+  background: rgba(201, 164, 76, .12) !important;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, .18) !important;
+}
+
+.verse-number {
+  color: #d8b866 !important;
+  font-family: var(--font-sans), system-ui, sans-serif !important;
+  font-weight: 600 !important;
+}
+
+.verse-copy {
+  color: #f3e8cc !important;
+  font-size: var(--scripture-desktop-font-size, 1.25rem) !important;
+  font-weight: 500 !important;
+  line-height: 1.62 !important;
+}
+
+
+.verse-study-card-header,
+.word-note-title {
+  background: rgba(201, 164, 76, .13) !important;
+  color: #d8b866 !important;
+}
+
+.exposition-card {
+  border-color: rgba(201, 164, 76, .22) !important;
+  background: rgba(18, 38, 63, .82) !important;
+}
+
+.exposition-card-heading h2,
+.passage-outline-title {
+  color: #f3e8cc !important;
+  font-weight: 500 !important;
+}
+
+.commentary-reading {
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif !important;
+  font-size: var(--notes-font-size, 1.125rem) !important;
+  font-weight: 400 !important;
+  line-height: 1.78 !important;
+}
+
+.word-note,
+.reference-chip,
+.word-reference-chip {
+  border-color: rgba(201, 164, 76, .2) !important;
+  background: rgba(14, 33, 56, .72) !important;
+  color: #ece0c4 !important;
+}
+
+.word-note p {
+  color: #b9ad90 !important;
+}
+
+/* Colossians typography roles. */
+h1,
+h2,
+.reader-brand-text,
+.reader-brand-strong,
+.mbe-library-name,
+.home-showcase-copy h1,
+.home-section-split h2,
+.background-hero h1,
+.background-section h2,
+.scripture-pane-header h1 {
+  font-family: "Cinzel", Georgia, serif !important;
+}
+
+.scripture-pane-body,
+.scripture-card,
+.verse-copy,
+.passage-outline-title,
+.verse-study-card h3,
+.word-note-title,
+.word-note p,
+.home-showcase-description,
+.home-chapter-group h3 {
+  font-family: var(--font-serif), Georgia, serif !important;
+}
+
+.mbe-global-shell,
+.mbe-global-footer,
+.mbe-ribbon-back,
+.mbe-library-toggle,
+.mbe-library-desc,
+.mbe-footer-link,
+.reader-nav,
+.reader-menu,
+.reader-menu-link,
+.reader-nav-link,
+.reader-header-actions,
+.reader-menu-button,
+.home-showcase-actions,
+.home-showcase-primary,
+.home-showcase-secondary,
+.home-section-kicker,
+.home-chapter-group > p,
+.home-chapter-mini-grid span,
+.reader-pane-toolbar,
+.reader-pane-kicker,
+.reader-pane-subtitle,
+.reader-pane-controls,
+.reader-pane-controls button,
+.scripture-chapter-summary,
+.exposition-card-heading h2,
+.commentary-reading,
+.commentary-reading p,
+.verse-number,
+.verse-study-card-header,
+.reference-chip,
+.word-reference-chip,
+button,
+input,
+select,
+textarea,
+label,
+figcaption,
+caption {
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif !important;
+}
+
+@media (max-width: 980px) {
+  .reader-header {
+    grid-template-columns: minmax(0, 1fr) auto !important;
+  }
+
+  .split-reader {
+    height: auto !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .home-showcase-copy h1 {
+    font-size: clamp(3rem, 16vw, 4.5rem) !important;
+  }
+
+  .verse-copy {
+    font-size: var(--scripture-mobile-font-size, 1.125rem) !important;
+  }
+}
+
+/* Home title hierarchy. */
+
+body[data-colossians-route="home"] .home-title-prefix {
+  margin: 0 0 1rem;
+  color: #d8b866;
+  font-family: var(--font-display) !important;
+  font-size: 1.25rem !important;
+  font-weight: 500;
+  letter-spacing: .18em;
+  line-height: 1.25;
+  text-shadow: 0 12px 28px rgba(0, 0, 0, .48);
+}
+
+@media (max-width: 640px) {
+  body[data-colossians-route="home"] .home-title-prefix {
+    margin-bottom: .75rem;
+    font-size: 1rem !important;
+    letter-spacing: .14em;
+  }
+}
+
+/* Final chapter-reader typography and scale. */
+body[data-colossians-chapter] .split-reader {
+  --scripture-mobile-font-size: 1.125rem;
+  --scripture-desktop-font-size: 1.25rem;
+  --notes-font-size: 1.125rem;
+}
+
+body[data-colossians-chapter] .scripture-pane,
+body[data-colossians-chapter] .scripture-pane-body,
+body[data-colossians-chapter] .scripture-list,
+body[data-colossians-chapter] .scripture-card,
+body[data-colossians-chapter] .verse-copy {
+  font-family: var(--font-serif), Georgia, serif !important;
+}
+
+body[data-colossians-chapter] .commentary-pane,
+body[data-colossians-chapter] .commentary-pane-body,
+body[data-colossians-chapter] .commentary-reading,
+body[data-colossians-chapter] .commentary-reading p,
+body[data-colossians-chapter] .reader-pane-toolbar,
+body[data-colossians-chapter] .reader-pane-kicker,
+body[data-colossians-chapter] .reader-pane-subtitle,
+body[data-colossians-chapter] .reader-pane-controls,
+body[data-colossians-chapter] .reader-pane-controls button,
+body[data-colossians-chapter] .verse-number,
+body[data-colossians-chapter] .passage-outline-divider,
+body[data-colossians-chapter] .passage-outline-range,
+body[data-colossians-chapter] .exposition-card-heading h2 {
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif !important;
+}
+
+body[data-colossians-chapter] .scripture-pane-body {
+  padding: 1.5rem clamp(1.5rem, 3vw, 2.5rem) 0 !important;
+}
+
+body[data-colossians-chapter] .scripture-pane-header {
+  margin-bottom: 1.75rem !important;
+  padding-bottom: 1.5rem !important;
+  border-bottom: 1px solid rgba(201, 164, 76, .18) !important;
+}
+
+body[data-colossians-chapter] .scripture-pane-header::after {
+  display: none !important;
+}
+
+body[data-colossians-chapter] .scripture-pane-header h1 {
+  max-width: none !important;
+  color: #f3e8cc !important;
+  font-family: "Cinzel", Georgia, serif !important;
+  font-size: clamp(1.875rem, 2.3vw, 2.25rem) !important;
+  font-weight: 600 !important;
+  letter-spacing: .015em !important;
+  line-height: 2.5rem !important;
+}
+
+body[data-colossians-chapter] .scripture-chapter-summary {
+  max-width: 42rem !important;
+  margin-top: .75rem !important;
+  color: rgba(236, 224, 196, .78) !important;
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif !important;
+  font-size: 1rem !important;
+  font-weight: 400 !important;
+  letter-spacing: 0 !important;
+  line-height: 1.75rem !important;
+}
+
+body[data-colossians-chapter] .scripture-list {
+  margin-top: 0 !important;
+  display: grid !important;
+  gap: 1rem !important;
+  color: #f3e8cc !important;
+  font-size: var(--scripture-desktop-font-size, 1.25rem) !important;
+  line-height: 1.75rem !important;
+}
+
+body[data-colossians-chapter] .passage-outline-divider {
+  margin: 2rem 0 .65rem !important;
+  padding-top: 1rem !important;
+  border-top: 1px solid rgba(201, 164, 76, .18) !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+body[data-colossians-chapter] .passage-outline-range {
+  color: #d8b866 !important;
+  font-size: .72rem !important;
+  font-weight: 700 !important;
+  letter-spacing: .16em !important;
+  line-height: 1.35 !important;
+  text-transform: uppercase !important;
+}
+
+body[data-colossians-chapter] .passage-outline-title {
+  margin-top: .35rem !important;
+  color: #f3e8cc !important;
+  font-family: "Cinzel", Georgia, serif !important;
+  font-size: 1rem !important;
+  font-weight: 700 !important;
+  letter-spacing: .02em !important;
+  line-height: 1.35 !important;
+}
+
+body[data-colossians-chapter] .scripture-card {
+  display: block !important;
+  width: 100% !important;
+  padding: .5rem !important;
+  border: 0 !important;
+  border-radius: .25rem !important;
+  background: transparent !important;
+  color: #f3e8cc !important;
+  text-align: left !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+body[data-colossians-chapter] .scripture-card:hover {
+  background: rgba(201, 164, 76, .10) !important;
+  transform: none !important;
+}
+
+body[data-colossians-chapter] .scripture-card-active,
+body[data-colossians-chapter] .scripture-card-active:hover {
+  border: 0 !important;
+  background: rgba(201, 164, 76, .10) !important;
+  box-shadow: inset 3px 0 0 0 #c9a44c !important;
+}
+
+body[data-colossians-chapter] .verse-number {
+  display: inline !important;
+  margin-right: .5rem !important;
+  color: #d8b866 !important;
+  font-size: .75rem !important;
+  font-weight: 700 !important;
+  line-height: 0 !important;
+  vertical-align: super !important;
+}
+
+body[data-colossians-chapter] .verse-copy {
+  display: inline !important;
+  color: #f3e8cc !important;
+  font-size: var(--scripture-desktop-font-size, 1.25rem) !important;
+  font-weight: 400 !important;
+  letter-spacing: 0 !important;
+  line-height: 1.75rem !important;
+}
+
+body[data-colossians-chapter] .commentary-pane {
+  background: hsl(213 34% 18%) !important;
+}
+
+body[data-colossians-chapter] .reader-pane-toolbar-notes {
+  background: hsl(213 42% 16%) !important;
+  border-bottom-color: hsl(213 26% 27%) !important;
+}
+
+body[data-colossians-chapter] .commentary-pane-body {
+  padding: 1.25rem !important;
+  background: hsl(213 34% 18%) !important;
+}
+
+body[data-colossians-chapter] .commentary-shell {
+  max-width: none !important;
+}
+
+body[data-colossians-chapter] .exposition-card {
+  margin-top: 0 !important;
+  padding: 1.25rem !important;
+  border: 1px solid rgba(201, 164, 76, .55) !important;
+  border-radius: .375rem !important;
+  background: hsl(213 42% 16%) !important;
+  box-shadow:
+    0 0 0 1px rgba(201, 164, 76, .35),
+    0 1px 2px rgba(0, 0, 0, .18) !important;
+}
+
+body[data-colossians-chapter] .exposition-card-heading {
+  margin-bottom: .75rem !important;
+}
+
+body[data-colossians-chapter] .exposition-card-heading h2 {
+  color: #f3e8cc !important;
+  font-size: .875rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0 !important;
+  line-height: 1.25rem !important;
+}
+
+body[data-colossians-chapter] .commentary-reading {
+  margin-top: 0 !important;
+  color: rgba(236, 224, 196, .86) !important;
+  font-size: var(--notes-font-size, 1.125rem) !important;
+  font-weight: 400 !important;
+  letter-spacing: 0 !important;
+  line-height: 2rem !important;
+}
+
+body[data-colossians-chapter] .commentary-reading p {
+  color: inherit !important;
+  font-size: inherit !important;
+  font-weight: inherit !important;
+  letter-spacing: inherit !important;
+  line-height: inherit !important;
+}
+
+body[data-colossians-chapter] .commentary-reading p + p {
+  margin-top: 1.5rem !important;
+}
+
+@media (max-width: 640px) {
+  body[data-colossians-chapter] .scripture-list,
+  body[data-colossians-chapter] .verse-copy {
+    font-size: var(--scripture-mobile-font-size, 1.125rem) !important;
+  }
+
+  body[data-colossians-chapter] .scripture-pane-header h1 {
+    font-size: 1.875rem !important;
+    line-height: 2.25rem !important;
+  }
+}
+
+/* Chapter reader presentation. */
+body[data-colossians-chapter] {
+  background: hsl(213 58% 13%) !important;
+}
+
+body[data-colossians-chapter] .reader-page {
+  background: hsl(213 58% 13%) !important;
+}
+
+body[data-colossians-chapter] .split-reader {
+  --scripture-mobile-font-size: 1.125rem;
+  --scripture-desktop-font-size: 1.25rem;
+  --notes-font-size: 1.125rem;
+  background: hsl(213 58% 13%) !important;
+}
+
+body[data-colossians-chapter] .scripture-pane {
+  background: hsl(213 42% 16%) !important;
+}
+
+body[data-colossians-chapter] .commentary-pane,
+body[data-colossians-chapter] .commentary-pane-body {
+  background: hsl(213 34% 18%) !important;
+}
+
+body[data-colossians-chapter] .scripture-pane-body {
+  padding: 1.5rem clamp(1.5rem, 3vw, 2.5rem) 0 !important;
+}
+
+body[data-colossians-chapter] .scripture-pane-header {
+  margin-bottom: .75rem !important;
+  padding-bottom: .35rem !important;
+  border-bottom: 0 !important;
+}
+
+body[data-colossians-chapter] .scripture-pane-header::after {
+  display: none !important;
+}
+
+body[data-colossians-chapter] .scripture-pane-header h1 {
+  color: hsl(41 44% 89%) !important;
+  font-family: "Cinzel", Georgia, serif !important;
+  font-size: clamp(1.875rem, 2.3vw, 2.25rem) !important;
+  font-weight: 600 !important;
+  letter-spacing: .015em !important;
+  line-height: 2.5rem !important;
+}
+
+body[data-colossians-chapter] .scripture-chapter-summary {
+  max-width: 42rem !important;
+  margin-top: .75rem !important;
+  color: hsl(41 20% 68%) !important;
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif !important;
+  font-size: 1rem !important;
+  font-weight: 400 !important;
+  line-height: 1.75rem !important;
+}
+
+body[data-colossians-chapter] .passage-outline-divider {
+  margin: 0 0 .65rem !important;
+  padding-top: 0 !important;
+  border-top: 0 !important;
+}
+
+body[data-colossians-chapter] .passage-outline-range {
+  color: hsl(42 54% 54%) !important;
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif !important;
+  font-size: .72rem !important;
+  font-weight: 700 !important;
+  letter-spacing: .16em !important;
+  line-height: 1.35 !important;
+}
+
+body[data-colossians-chapter] .passage-outline-title {
+  margin-top: .35rem !important;
+  color: hsl(41 44% 89%) !important;
+  font-family: "Cinzel", Georgia, serif !important;
+  font-size: 1rem !important;
+  font-weight: 700 !important;
+  letter-spacing: .02em !important;
+  line-height: 1.35 !important;
+}
+
+body[data-colossians-chapter] .scripture-list {
+  gap: 1rem !important;
+  color: hsl(41 44% 89%) !important;
+}
+
+body[data-colossians-chapter] .mobile-verse-notes {
+  display: none;
+}
+
+body[data-colossians-chapter] .scripture-card {
+  display: block !important;
+  padding: .5rem !important;
+  border: 0 !important;
+  border-radius: .25rem !important;
+  background: transparent !important;
+}
+
+body[data-colossians-chapter] .scripture-card-active,
+body[data-colossians-chapter] .scripture-card-active:hover {
+  background: hsl(42 54% 54% / .10) !important;
+  box-shadow: inset 3px 0 0 hsl(42 54% 54%) !important;
+}
+
+body[data-colossians-chapter] .verse-number {
+  display: inline !important;
+  margin-right: .5rem !important;
+  color: hsl(42 54% 54%) !important;
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif !important;
+  font-size: .75rem !important;
+  font-weight: 700 !important;
+  line-height: 0 !important;
+  vertical-align: super !important;
+}
+
+body[data-colossians-chapter] .verse-copy {
+  display: inline !important;
+  color: hsl(41 44% 89%) !important;
+  font-family: var(--font-serif), Georgia, serif !important;
+  font-size: var(--scripture-desktop-font-size, 1.25rem) !important;
+  font-weight: 400 !important;
+  line-height: 1.75rem !important;
+}
+
+body[data-colossians-chapter] .reader-pane-toolbar,
+body[data-colossians-chapter] .reader-pane-toolbar-notes {
+  min-height: 65px !important;
+  background: hsl(213 42% 16%) !important;
+  border-color: hsl(213 26% 27%) !important;
+}
+
+body[data-colossians-chapter] .reader-pane-kicker {
+  color: hsl(41 44% 89%) !important;
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif !important;
+  font-size: .875rem !important;
+  font-weight: 600 !important;
+  letter-spacing: .16em !important;
+}
+
+body[data-colossians-chapter] .reader-pane-kicker svg {
+  color: hsl(42 54% 54%) !important;
+}
+
+body[data-colossians-chapter] .commentary-pane-body {
+  padding: 1.25rem !important;
+}
+
+body[data-colossians-chapter] .exposition-card {
+  margin-top: 0 !important;
+  padding: 1.25rem !important;
+  border: 1px solid hsl(42 54% 54% / .55) !important;
+  border-radius: .375rem !important;
+  background: hsl(213 42% 16%) !important;
+  box-shadow:
+    0 0 0 1px hsl(42 54% 54% / .35),
+    0 1px 2px rgb(0 0 0 / .18) !important;
+}
+
+body[data-colossians-chapter] .exposition-card-heading {
+  margin-bottom: .75rem !important;
+}
+
+body[data-colossians-chapter] .exposition-card-heading h2 {
+  color: hsl(41 44% 89%) !important;
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif !important;
+  font-size: .875rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0 !important;
+  line-height: 1.25rem !important;
+}
+
+body[data-colossians-chapter] .commentary-reading,
+body[data-colossians-chapter] .commentary-reading p {
+  color: hsl(41 44% 89%) !important;
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif !important;
+  font-size: var(--notes-font-size, 1.125rem) !important;
+  font-weight: 400 !important;
+  letter-spacing: 0 !important;
+  line-height: 2rem !important;
+}
+
+body[data-colossians-chapter] .commentary-reading p + p {
+  margin-top: 1rem !important;
+}
+
+@media (max-width: 980px) {
+  body[data-colossians-chapter] .split-reader {
+    display: block !important;
+  }
+
+  body[data-colossians-chapter] .scripture-pane {
+    min-height: 0 !important;
+  }
+
+  body[data-colossians-chapter] .scripture-pane-body {
+    overflow: visible !important;
+    padding-bottom: 3rem !important;
+  }
+
+  body[data-colossians-chapter] .commentary-pane {
+    display: none !important;
+  }
+
+  body[data-colossians-chapter] .mobile-verse-notes {
+    display: block;
+    margin: .85rem 0 1.35rem;
+  }
+
+  body[data-colossians-chapter] .mobile-verse-notes .exposition-card {
+    margin-top: 0 !important;
+  }
+}
+
+@media (max-width: 640px) {
+  body[data-colossians-chapter] .mobile-verse-notes {
+    margin: .75rem -.15rem 1.25rem;
+  }
+
+  body[data-colossians-chapter] .mobile-verse-notes .exposition-card {
+    padding: 1rem !important;
+  }
+}
+
+/* Colossians typography standardization: final winning layer.
+   Cinzel = headings, EB Garamond = Bible text, Jost = notes and UI. */
+:root,
+.dark {
+  --display-font: "Cinzel", Georgia, "Times New Roman", serif;
+  --scripture-font: "EB Garamond", Georgia, "Times New Roman", serif;
+  --ui-font: "Jost", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-display: var(--display-font);
+  --font-serif: var(--scripture-font);
+  --font-sans: var(--ui-font);
+  --mbe-font-display: var(--font-display);
+  --mbe-font-reading: var(--font-serif);
+  --mbe-font-ui: var(--font-sans);
+}
+
+body {
+  font-family: var(--font-sans) !important;
+}
+
+.reader-brand-text,
+.reader-brand-strong,
+.mbe-library-name,
+.home-showcase-copy h1,
+.home-section-split h2,
+.background-hero h1,
+body[data-colossians-chapter] .scripture-pane-header h1,
+body[data-colossians-chapter] .passage-outline-title,
+body[data-colossians-chapter] .reader-pane-toolbar-notes .reader-pane-kicker {
+  font-family: var(--font-display) !important;
+  font-weight: 600 !important;
+}
+
+.home-showcase-copy h1 {
+  font-size: clamp(3rem, 7vw, 7rem) !important;
+  line-height: .95 !important;
+}
+
+.home-section-split h2,
+.background-hero h1 {
+  font-size: clamp(2.25rem, 5vw, 4.5rem) !important;
+  line-height: 1 !important;
+}
+
+
+.background-section h2 {
+  font-size: clamp(1.875rem, 3vw, 2.25rem) !important;
+  line-height: 1.12 !important;
+}
+
+body[data-colossians-chapter] .scripture-pane-header h1 {
+  font-size: clamp(1.7rem, 2.1vw, 2.15rem) !important;
+  line-height: 2.15rem !important;
+}
+
+.verse-copy,
+.scripture-card .verse-copy,
+.scripture-pane .verse-copy,
+body[data-colossians-chapter] .verse-copy {
+  font-family: var(--font-serif) !important;
+}
+
+body[data-colossians-chapter] .verse-copy {
+  font-size: var(--scripture-desktop-font-size, 1.25rem) !important;
+  font-weight: 400 !important;
+  line-height: 1.75rem !important;
+}
+
+body[data-colossians-chapter] .passage-outline-title {
+  font-family: var(--font-display) !important;
+  font-size: 1.25rem !important;
+  font-weight: 600 !important;
+  letter-spacing: .02em !important;
+  line-height: 1.25 !important;
+}
+
+body[data-colossians-chapter] .commentary-reading,
+body[data-colossians-chapter] .commentary-reading p {
+  font-family: var(--font-sans) !important;
+  font-size: var(--notes-font-size, 1.125rem) !important;
+  font-weight: 400 !important;
+  letter-spacing: 0 !important;
+  line-height: 2rem !important;
+}
+
+.mbe-global-shell,
+.mbe-global-footer,
+.mbe-ribbon-back,
+.mbe-library-toggle,
+.mbe-library-desc,
+.mbe-footer-link,
+.reader-nav,
+.reader-menu,
+.reader-menu-link,
+.reader-nav-link,
+.reader-header-actions,
+.reader-menu-button,
+.home-showcase-description,
+.home-showcase-actions,
+.home-showcase-primary,
+.home-showcase-secondary,
+.home-section-kicker,
+.home-chapter-group,
+.home-chapter-group h3,
+.home-chapter-group > p,
+.home-chapter-mini-grid,
+.home-chapter-mini-grid span,
+.background-subtitle,
+.background-section-nav,
+.background-section-nav a,
+.background-section-number,
+.reader-pane-toolbar,
+.reader-pane-kicker,
+.reader-pane-subtitle,
+.reader-pane-controls,
+.reader-pane-controls button,
+.scripture-chapter-summary,
+.passage-outline-range,
+.exposition-card-heading h2,
+.verse-number,
+.verse-study-card,
+.verse-study-card-header,
+.verse-study-card h3,
+.study-card-section h3,
+.reference-chip,
+.word-note-title,
+.word-reference-chip,
+button,
+input,
+select,
+textarea,
+label,
+figcaption,
+caption {
+  font-family: var(--font-sans) !important;
+}
+
+body[data-colossians-chapter] .reader-pane-toolbar:not(.reader-pane-toolbar-notes) .reader-pane-kicker,
+body[data-colossians-chapter] .reader-pane-toolbar:not(.reader-pane-toolbar-notes) .reader-pane-kicker span,
+body[data-colossians-chapter] .passage-outline-range,
+body[data-colossians-chapter] .verse-number {
+  font-family: var(--font-sans) !important;
+}
+
+body[data-colossians-chapter] .reader-pane-toolbar-notes .reader-pane-kicker,
+body[data-colossians-chapter] .reader-pane-toolbar-notes .reader-pane-kicker span {
+  font-family: var(--font-display) !important;
+  font-size: .875rem !important;
+  font-weight: 600 !important;
+  letter-spacing: .16em !important;
+}
+
+.reader-brand-text {
+  font-size: .78rem !important;
+}
+
+.reader-menu-link,
+.reader-nav-link,
+.home-showcase-primary,
+.home-showcase-secondary {
+  font-size: .72rem !important;
+}
+
+
+.home-section-kicker,
+.home-chapter-group > p,
+.home-chapter-mini-grid span,
+.passage-outline-range {
+  font-size: .75rem !important;
+}
+
+.home-showcase-description,
+.background-subtitle {
+  font-size: clamp(1rem, 1.7vw, 1.25rem) !important;
+}
+
+
+.home-section-split > p,
+.background-section-body p {
+  font-size: .98rem !important;
+}
+
+
+.home-chapter-group h3 {
+  font-size: 1.25rem !important;
+}
+
+.scripture-chapter-summary,
+.reader-pane-kicker,
+.exposition-card-heading h2 {
+  font-size: .875rem !important;
+}
+
+body[data-colossians-chapter] .split-reader {
+  --scripture-mobile-font-size: 1.125rem;
+  --scripture-desktop-font-size: 1.25rem;
+  --notes-font-size: 1.125rem;
+}
+
+@media (max-width: 640px) {
+  .home-showcase-copy h1 {
+    font-size: clamp(3rem, 16vw, 4.5rem) !important;
+  }
+
+  body[data-colossians-chapter] .verse-copy {
+    font-size: var(--scripture-mobile-font-size, 1.125rem) !important;
+  }
+}
+
+/* Keep independently scrolled chapter panes from extending the document's
+   visual overflow below the global footer. */
+html:has(body[data-colossians-chapter]) {
+  height: 100% !important;
+  overflow: hidden !important;
+}
+
+body[data-colossians-chapter] {
+  height: 100% !important;
+  min-height: 100% !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+}
+
+
+/* MBE asset delivery fallback: avoid Safari masking or stacking hero art away. */
+body[data-colossians-route="home"] .home-showcase-hero::before,
+body[data-colossians-route="home"] .home-showcase-hero::after {
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+}
+
+body[data-colossians-route="home"] .home-showcase-hero::before,
+body[data-colossians-route="introduction"] .background-hero::before {
+  z-index: 0 !important;
+}
+
+body[data-colossians-route="home"] .home-showcase-hero::after,
+body[data-colossians-route="introduction"] .background-hero::after {
+  z-index: 1 !important;
+}
+
+body[data-colossians-route="home"] .home-showcase-copy,
+body[data-colossians-route="introduction"] .background-hero > * {
+  position: relative;
+  z-index: 2 !important;
+}
+
+/* Colossians home: Corinthians-style dissolving hero and primary study cards. */
+body[data-colossians-route="home"] .home-showcase-hero {
+  min-height: clamp(38rem, 76vh, 54rem) !important;
+  padding-bottom: clamp(7rem, 13vw, 11rem) !important;
+}
+
+body[data-colossians-route="home"] .home-showcase-hero::before {
+  background-position: center top !important;
+}
+
+body[data-colossians-route="home"] .home-showcase-hero::after {
+  background:
+    linear-gradient(180deg, rgba(11, 31, 58, .02) 0%, rgba(11, 31, 58, .24) 54%, rgba(11, 31, 58, .68) 80%, rgba(11, 31, 58, .92) 94%, #0b1f3a 100%),
+    radial-gradient(circle at 80% 28%, rgba(216, 184, 102, .18), rgba(216, 184, 102, 0) 28rem),
+    linear-gradient(90deg, rgba(8, 21, 33, .98) 0%, rgba(8, 21, 33, .86) 30%, rgba(8, 21, 33, .42) 62%, rgba(8, 21, 33, .72) 100%) !important;
+}
+
+body[data-colossians-route="home"] .home-action-grid,
+body[data-colossians-route="home"] .home-chapter-study {
+  width: min(calc(100% - clamp(2rem, 8vw, 6rem)), 92rem) !important;
+  margin-inline: auto !important;
+}
+
+body[data-colossians-route="home"] .home-action-grid {
+  position: relative;
+  z-index: 3;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 1.4rem);
+  margin-top: clamp(-5.25rem, -6vw, -3.25rem) !important;
+}
+
+body[data-colossians-route="home"] .home-action-card {
+  display: flex;
+  min-height: clamp(15rem, 24vw, 19rem);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: clamp(1rem, 1.6vw, 1.35rem);
+  padding: clamp(1.5rem, 3vw, 2.35rem);
+  border: 1px solid rgba(201, 164, 76, .22);
+  border-radius: .55rem;
+  background:
+    linear-gradient(180deg, rgba(22, 43, 66, .9), rgba(18, 38, 63, .78));
+  color: #ece0c4;
+  text-decoration: none;
+  box-shadow: 0 26px 70px -42px rgba(0, 0, 0, .88);
+  transition: transform .22s ease, border-color .22s ease, background .22s ease, box-shadow .22s ease;
+}
+
+body[data-colossians-route="home"] .home-action-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(216, 184, 102, .52);
+  background:
+    linear-gradient(180deg, rgba(26, 51, 78, .96), rgba(20, 42, 68, .86));
+  box-shadow: 0 32px 80px -42px rgba(0, 0, 0, .9);
+}
+
+body[data-colossians-route="home"] .home-action-icon {
+  display: grid;
+  width: 3.5rem;
+  height: 3.5rem;
+  place-items: center;
+  border-radius: .5rem;
+  background: rgba(201, 164, 76, .13);
+  color: #d8b866;
+}
+
+body[data-colossians-route="home"] .home-action-card strong {
+  margin-top: auto;
+  color: #f3e8cc;
+  font-family: var(--font-sans) !important;
+  font-size: clamp(1.35rem, 2.2vw, 1.85rem);
+  font-weight: 700;
+  letter-spacing: -.025em;
+  line-height: 1.1;
+}
+
+body[data-colossians-route="home"] .home-action-card > span:not(.home-action-icon) {
+  color: #b9ad90;
+  font-family: var(--font-sans) !important;
+  font-size: clamp(1rem, 1.4vw, 1.18rem);
+  font-weight: 500;
+  line-height: 1.62;
+}
+
+body[data-colossians-route="home"] .home-action-card em {
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  color: #d8b866;
+  font-family: var(--font-sans) !important;
+  font-size: .72rem;
+  font-style: normal;
+  font-weight: 800;
+  letter-spacing: .16em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+body[data-colossians-route="home"] .home-chapter-study {
+  margin-top: clamp(3.5rem, 6vw, 5.5rem) !important;
+}
+
+body[data-colossians-route="home"] .home-chapter-group-grid {
+  grid-template-columns: minmax(0, 1fr) !important;
+  width: 100%;
+}
+
+body[data-colossians-route="home"] .home-chapter-group {
+  width: 100%;
+  padding: clamp(1.75rem, 3vw, 2.5rem);
+}
+
+body[data-colossians-route="home"] .home-chapter-mini-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: clamp(.75rem, 1.4vw, 1rem);
+}
+
+body[data-colossians-route="home"] .home-section-split {
+  grid-template-columns: minmax(0, 1fr) !important;
+  gap: clamp(1rem, 2vw, 1.5rem) !important;
+  align-items: start !important;
+}
+
+body[data-colossians-route="home"] .home-section-split > div,
+body[data-colossians-route="home"] #home-chapter-title {
+  width: 100%;
+  max-width: none;
+}
+
+body[data-colossians-route="home"] #home-chapter-title {
+  font-size: clamp(1.75rem, 3vw, 3.25rem) !important;
+  line-height: 1.08 !important;
+}
+
+body[data-colossians-route="home"] .home-section-split > p {
+  max-width: 72rem;
+}
+
+@media (max-width: 980px) {
+  body[data-colossians-route="home"] .home-action-grid {
+    grid-template-columns: 1fr;
+    margin-top: clamp(-4rem, -8vw, -2.25rem) !important;
+  }
+
+  body[data-colossians-route="home"] .home-action-card {
+    min-height: 0;
+  }
+
+  body[data-colossians-route="home"] .home-chapter-mini-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  body[data-colossians-route="home"] .home-showcase-hero {
+    min-height: clamp(34rem, 72vh, 42rem) !important;
+    padding-bottom: 6rem !important;
+  }
+
+  body[data-colossians-route="home"] .home-chapter-mini-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Colossians articles: long-form reading section. */
+.articles-page,
+.article-page {
+  min-height: 100vh;
+  background:
+    linear-gradient(90deg, rgba(201, 164, 76, .05) 0 1px, transparent 1px),
+    linear-gradient(180deg, #0b1f3a, #0e2138 45%, #081521) !important;
+  background-size: 54px 100%, 100% 100% !important;
+}
+
+.articles-hero,
+.article-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: clamp(24rem, 46vh, 34rem);
+  display: flex;
+  align-items: center;
+  padding: clamp(4rem, 7vw, 6.5rem) clamp(2rem, 6vw, 5.5rem);
+}
+
+.articles-hero::before,
+.article-hero::before,
+.articles-hero::after,
+.article-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.articles-hero::before,
+.article-hero::before {
+  z-index: -2;
+  background: url("/assets/colossians-hero-engraving.webp?v=mbe-20260715-1") center top / cover no-repeat;
+  filter: saturate(.82) contrast(1.08);
+  opacity: .54;
+}
+
+.articles-hero::before {
+  filter: saturate(.9) contrast(1.12) brightness(1.08);
+  opacity: .78;
+}
+
+.articles-hero::after,
+.article-hero::after {
+  z-index: -1;
+  background:
+    linear-gradient(180deg, rgba(11, 31, 58, .08) 0%, rgba(11, 31, 58, .54) 70%, #0b1f3a 100%),
+    linear-gradient(90deg, rgba(8, 21, 33, .99) 0%, rgba(8, 21, 33, .9) 42%, rgba(8, 21, 33, .62) 100%),
+    radial-gradient(circle at 78% 22%, rgba(216, 184, 102, .16), rgba(216, 184, 102, 0) 25rem);
+}
+
+.articles-hero::after {
+  background:
+    linear-gradient(180deg, rgba(11, 31, 58, .02) 0%, rgba(11, 31, 58, .24) 72%, #0b1f3a 100%),
+    linear-gradient(90deg, rgba(8, 21, 33, .82) 0%, rgba(8, 21, 33, .55) 42%, rgba(8, 21, 33, .24) 100%),
+    radial-gradient(circle at 78% 22%, rgba(216, 184, 102, .18), rgba(216, 184, 102, 0) 25rem);
+}
+
+.articles-hero-copy,
+.article-hero-copy,
+.articles-shell,
+.article-shell {
+  width: min(calc(100% - clamp(2rem, 8vw, 6rem)), 92rem);
+  margin-inline: auto;
+}
+
+.articles-hero-copy,
+.article-hero-copy {
+  position: relative;
+  z-index: 1;
+}
+
+.articles-kicker {
+  margin: 0 0 1rem;
+  color: #d8b866;
+  font-family: var(--font-sans), system-ui, sans-serif !important;
+  font-size: .78rem;
+  font-weight: 800;
+  letter-spacing: .22em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.articles-hero h1,
+.article-hero h1 {
+  max-width: 68rem;
+  margin: 0;
+  color: #f3e8cc;
+  font-family: var(--font-display), Georgia, serif !important;
+  font-size: clamp(2.65rem, 6vw, 5.5rem);
+  font-weight: 500;
+  letter-spacing: .01em;
+  line-height: .98;
+  text-shadow: 0 18px 44px rgba(0, 0, 0, .34);
+}
+
+.articles-hero-copy > p:not(.articles-kicker),
+.article-hero-copy > p:not(.articles-kicker) {
+  max-width: 55rem;
+  margin-top: clamp(1.35rem, 3vw, 2rem);
+  color: #cbbf9e;
+  font-family: var(--font-serif), Georgia, serif !important;
+  font-size: clamp(1.12rem, 2vw, 1.35rem);
+  line-height: 1.7;
+}
+
+.articles-hero-copy > p:not(.articles-kicker) {
+  max-width: min(42rem, 54vw);
+}
+
+.articles-shell {
+  padding: clamp(3rem, 6vw, 5.5rem) 0 clamp(5rem, 8vw, 7rem);
+}
+
+.articles-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 1.4rem);
+}
+
+.articles-empty {
+  display: flex;
+  max-width: 52rem;
+  min-height: 22rem;
+  margin: 0 auto;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(201, 164, 76, .22);
+  border-radius: .55rem;
+  background: linear-gradient(180deg, rgba(22, 43, 66, .9), rgba(18, 38, 63, .78));
+  padding: clamp(2rem, 6vw, 4.5rem);
+  text-align: center;
+  box-shadow: 0 26px 70px -42px rgba(0, 0, 0, .88);
+}
+
+.articles-empty .articles-kicker {
+  margin: 1.25rem 0 .75rem;
+  color: #d8b866;
+  font-family: var(--font-sans), system-ui, sans-serif !important;
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.articles-empty h2 {
+  margin: 0;
+  color: #f3e8cc;
+  font-family: var(--font-serif), Georgia, serif !important;
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-weight: 600;
+  line-height: 1.08;
+}
+
+.articles-empty > p:not(.articles-kicker) {
+  max-width: 36rem;
+  margin: 1rem 0 1.75rem;
+  color: #b9ad90;
+  font-family: var(--font-sans), system-ui, sans-serif !important;
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+.articles-empty > a {
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  color: #d8b866;
+  font-family: var(--font-sans), system-ui, sans-serif !important;
+  font-size: .75rem;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.article-list-card {
+  display: flex;
+  min-height: clamp(17rem, 26vw, 22rem);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  border: 1px solid rgba(201, 164, 76, .22);
+  border-radius: .55rem;
+  background: linear-gradient(180deg, rgba(22, 43, 66, .9), rgba(18, 38, 63, .78));
+  padding: clamp(1.5rem, 3vw, 2.35rem);
+  color: #ece0c4;
+  text-decoration: none;
+  box-shadow: 0 26px 70px -42px rgba(0, 0, 0, .88);
+  transition: transform .22s ease, border-color .22s ease, background .22s ease, box-shadow .22s ease;
+}
+
+.article-list-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(216, 184, 102, .52);
+  background: linear-gradient(180deg, rgba(26, 51, 78, .96), rgba(20, 42, 68, .86));
+  box-shadow: 0 32px 80px -42px rgba(0, 0, 0, .9);
+}
+
+.article-list-icon {
+  display: grid;
+  width: 3.5rem;
+  height: 3.5rem;
+  place-items: center;
+  border-radius: .5rem;
+  background: rgba(201, 164, 76, .13);
+  color: #d8b866;
+}
+
+.article-list-eyebrow {
+  color: #d8b866;
+  font-family: var(--font-sans), system-ui, sans-serif !important;
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .16em;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.article-list-card strong {
+  color: #f3e8cc;
+  font-family: var(--font-serif), Georgia, serif !important;
+  font-size: clamp(1.5rem, 2.4vw, 2.15rem);
+  font-weight: 600;
+  letter-spacing: -.015em;
+  line-height: 1.12;
+}
+
+.article-list-card > span:not(.article-list-icon):not(.article-list-eyebrow) {
+  color: #b9ad90;
+  font-family: var(--font-sans), system-ui, sans-serif !important;
+  font-size: clamp(1rem, 1.4vw, 1.14rem);
+  font-weight: 500;
+  line-height: 1.62;
+}
+
+.article-list-card em {
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  margin-top: auto;
+  color: #d8b866;
+  font-family: var(--font-sans), system-ui, sans-serif !important;
+  font-size: .72rem;
+  font-style: normal;
+  font-weight: 800;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.article-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  margin-bottom: clamp(1.25rem, 3vw, 2rem);
+  color: #d8b866;
+  font-family: var(--font-sans), system-ui, sans-serif !important;
+  font-size: .78rem;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.article-back-link:hover {
+  color: #fff2d4;
+}
+
+.article-shell {
+  display: grid;
+  grid-template-columns: minmax(13rem, 18rem) minmax(0, 58rem);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: start;
+  padding: clamp(3rem, 6vw, 5.5rem) 0 clamp(5rem, 8vw, 7rem);
+}
+
+.article-toc {
+  position: sticky;
+  top: 6.5rem;
+  border: 1px solid rgba(201, 164, 76, .18);
+  border-radius: .55rem;
+  background: rgba(18, 38, 63, .72);
+  padding: 1.1rem;
+}
+
+.article-toc p {
+  margin: 0 0 .85rem;
+  color: #d8b866;
+  font-family: var(--font-sans), system-ui, sans-serif !important;
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.article-toc nav {
+  display: grid;
+  gap: .45rem;
+}
+
+.article-toc a {
+  border-radius: .35rem;
+  color: #cbbf9e;
+  font-family: var(--font-sans), system-ui, sans-serif !important;
+  font-size: .92rem;
+  font-weight: 600;
+  line-height: 1.35;
+  padding: .45rem .55rem;
+  text-decoration: none;
+}
+
+.article-toc a:hover {
+  background: rgba(201, 164, 76, .12);
+  color: #fff2d4;
+}
+
+.article-body {
+  min-width: 0;
+  border-left: 1px solid rgba(201, 164, 76, .2);
+  padding-left: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.article-body section + section {
+  margin-top: clamp(3rem, 6vw, 5rem);
+  padding-top: clamp(2rem, 4vw, 3rem);
+  border-top: 1px solid rgba(201, 164, 76, .18);
+}
+
+.article-body h2 {
+  margin: 0 0 clamp(1.25rem, 3vw, 1.9rem);
+  color: #f3e8cc;
+  font-family: var(--font-display), Georgia, serif !important;
+  font-size: clamp(1.9rem, 4vw, 3rem);
+  font-weight: 500;
+  letter-spacing: .01em;
+  line-height: 1.08;
+}
+
+.article-body p {
+  margin: 0;
+  color: rgba(236, 224, 196, .86);
+  font-family: var(--font-serif), Georgia, serif !important;
+  font-size: clamp(1.13rem, 1.7vw, 1.34rem);
+  line-height: 1.78;
+}
+
+.article-body p + p {
+  margin-top: 1.35rem;
+}
+
+.article-body strong {
+  color: #f3e8cc;
+  font-weight: 600;
+}
+
+@media (max-width: 980px) {
+  .articles-grid,
+  .article-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .article-toc {
+    position: relative;
+    top: auto;
+  }
+
+  .article-body {
+    border-left: 0;
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .articles-hero,
+  .article-hero {
+    min-height: 22rem;
+    padding: 3rem 1.35rem 2.5rem;
+  }
+
+  .articles-hero-copy,
+  .article-hero-copy,
+  .articles-shell,
+  .article-shell {
+    width: min(calc(100% - 2rem), 92rem);
+  }
+
+  .articles-hero-copy > p:not(.articles-kicker) {
+    max-width: 100%;
+  }
+}

@@ -1,0 +1,238 @@
+.colossians-background-page .background-section {
+  scroll-margin-top: 8.5rem;
+}
+
+.colossians-background-page .background-hero {
+  display: flex !important;
+  width: 100% !important;
+  max-width: none !important;
+  min-height: clamp(30rem, 58vh, 42rem);
+  align-items: center !important;
+  margin: 0 !important;
+  padding: clamp(4rem, 7vw, 6.5rem) clamp(2rem, 6vw, 5.5rem) !important;
+}
+
+body[data-colossians-route="introduction"] .colossians-background-page .background-hero {
+  border-bottom: 0 !important;
+  background: var(--background) !important;
+}
+
+.colossians-background-page .background-hero::before {
+  background-position: center 18% !important;
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 42%, rgba(0, 0, 0, 0.88) 58%, rgba(0, 0, 0, 0.48) 78%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 42%, rgba(0, 0, 0, 0.88) 58%, rgba(0, 0, 0, 0.48) 78%, transparent 100%);
+  opacity: 0.66 !important;
+}
+
+.colossians-background-page .background-hero::after {
+  background:
+    linear-gradient(180deg, rgba(14, 31, 52, 0) 34%, rgba(14, 31, 52, 0.12) 52%, rgba(14, 31, 52, 0.5) 74%, rgba(14, 31, 52, 0.86) 90%, var(--background) 100%),
+    linear-gradient(90deg, rgba(8, 21, 33, 0.99) 0%, rgba(8, 21, 33, 0.92) 38%, rgba(8, 21, 33, 0.54) 72%, rgba(8, 21, 33, 0.74) 100%),
+    radial-gradient(circle at 78% 18%, rgba(216, 184, 102, 0.16), rgba(216, 184, 102, 0) 26rem) !important;
+}
+
+.colossians-background-page .background-hero-copy {
+  width: 100%;
+  max-width: none;
+  margin: 0 auto;
+  padding-block: clamp(1.25rem, 3vw, 2.25rem);
+}
+
+.colossians-background-page .background-hero-copy h1 {
+  max-width: min(100%, 72rem) !important;
+  margin: 0;
+}
+
+.colossians-background-page .background-title-prefix {
+  display: block;
+  color: #d8b866;
+  font-family: var(--font-display), "Cinzel", Georgia, serif !important;
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  line-height: 1.2;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.colossians-background-page .background-title-book {
+  display: block;
+  margin-top: clamp(0.75rem, 1.5vw, 1.125rem);
+  color: #f3e8cc;
+  font-family: var(--font-display), "Cinzel", Georgia, serif !important;
+  font-size: clamp(4.5rem, 8vw, 7rem);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  line-height: 0.9;
+  text-transform: uppercase;
+  text-shadow: 0 18px 44px rgba(0, 0, 0, 0.34);
+}
+
+.colossians-background-page .background-subtitle {
+  max-width: 52rem !important;
+  margin-top: clamp(1.5rem, 3vh, 2rem);
+  color: #cbbf9e !important;
+  font-family: var(--font-serif), Georgia, serif !important;
+  font-size: 1.25rem !important;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+.colossians-background-page .background-section-body {
+  min-width: 0;
+}
+
+.colossians-background-page .background-section-nav a {
+  border-color: rgba(216, 184, 102, 0.38);
+  background: rgba(18, 38, 63, 0.96);
+  color: #f3e8cc;
+  font-weight: 600;
+}
+
+.colossians-background-page .background-section-nav {
+  position: relative;
+  z-index: 2;
+  margin-top: clamp(-2.5rem, -3vw, -1.75rem) !important;
+}
+
+.colossians-background-page .background-section-nav-scroll {
+  margin-top: 0 !important;
+}
+
+.colossians-background-page .background-section-nav a span {
+  color: #d8b866;
+  font-weight: 600;
+}
+
+.colossians-background-page .background-section-nav a:hover,
+.colossians-background-page .background-section-nav a:focus-visible {
+  border-color: rgba(216, 184, 102, 0.78);
+  background: rgba(201, 164, 76, 0.16);
+  color: #fff8e8;
+}
+
+.colossians-background-page .background-section-nav a:focus-visible {
+  outline: 2px solid #d8b866;
+  outline-offset: 3px;
+}
+
+.colossians-background-page .background-section-body > .background-subsection {
+  max-width: 56rem;
+  margin-top: 1.35rem;
+}
+
+.colossians-background-page .background-group-heading {
+  max-width: 56rem;
+  margin: 2.35rem 0 0.8rem;
+  color: #f3e8cc;
+  font-family: var(--font-display), "Cinzel", Georgia, serif;
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  font-weight: 500;
+  letter-spacing: 0.035em;
+}
+
+.colossians-background-page .background-group-heading:first-child {
+  margin-top: 0;
+}
+
+.background-table-wrap {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  margin: 1.7rem 0 2rem;
+  overflow-x: auto;
+  border: 1px solid rgba(201, 164, 76, 0.22);
+  border-radius: 0.5rem;
+  background: rgba(18, 38, 63, 0.78);
+  box-shadow: 0 20px 60px -44px rgba(0, 0, 0, 0.82);
+  scrollbar-color: rgba(216, 184, 102, 0.55) rgba(8, 21, 33, 0.55);
+}
+
+.background-table-wrap:focus-visible {
+  outline: 2px solid #d8b866;
+  outline-offset: 3px;
+}
+
+.background-data-table {
+  width: 100%;
+  min-width: 44rem;
+  border-collapse: collapse;
+  color: #ece0c4;
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.92rem;
+  line-height: 1.65;
+}
+
+.background-data-table th,
+.background-data-table td {
+  padding: 1rem 1.1rem;
+  border-right: 1px solid rgba(201, 164, 76, 0.14);
+  border-bottom: 1px solid rgba(201, 164, 76, 0.14);
+  text-align: left;
+  vertical-align: top;
+}
+
+.background-data-table th:last-child,
+.background-data-table td:last-child {
+  border-right: 0;
+}
+
+.background-data-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.background-data-table th {
+  background: rgba(201, 164, 76, 0.12);
+  color: #f3e8cc;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.background-data-table tbody tr:nth-child(even) {
+  background: rgba(8, 21, 33, 0.24);
+}
+
+@media (max-width: 700px) {
+  .colossians-background-page .background-hero {
+    min-height: 25rem;
+    padding: 3rem 1.35rem 1.75rem !important;
+  }
+
+  .colossians-background-page .background-hero::before {
+    background-position: 64% top !important;
+    -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 52%, rgba(0, 0, 0, 0.84) 70%, rgba(0, 0, 0, 0.34) 88%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 0%, #000 52%, rgba(0, 0, 0, 0.84) 70%, rgba(0, 0, 0, 0.34) 88%, transparent 100%);
+    opacity: 0.52 !important;
+  }
+
+  .colossians-background-page .background-section-nav {
+    margin-top: -1.25rem !important;
+  }
+
+  .colossians-background-page .background-title-prefix {
+    max-width: 18ch;
+    letter-spacing: 0.12em;
+    line-height: 1.3;
+    white-space: normal;
+  }
+
+  .colossians-background-page .background-title-book {
+    margin-top: 0.75rem;
+    font-size: clamp(3rem, 16vw, 3.75rem);
+    letter-spacing: 0;
+    line-height: 0.9;
+  }
+
+  .colossians-background-page .background-subtitle {
+    margin-top: 1.25rem;
+    font-size: 1.08rem !important;
+    line-height: 1.6;
+  }
+
+  .background-data-table {
+    min-width: 38rem;
+    font-size: 0.86rem;
+  }
+}
