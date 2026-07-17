@@ -1,6 +1,6 @@
 # Colossians Commentary
 
-Verse-by-verse commentary project for the book of Colossians, with the complete KJV text and 303 public commentary notes.
+Verse-by-verse commentary project for all four chapters of Colossians, with the complete KJV text and 95 public commentary notes.
 
 ## Development
 
@@ -13,20 +13,17 @@ npm run dev
 
 ```bash
 npm run validate:content
-npm run audit:humanization
-npm run validate:theology:draft
-npm run validate:theology
-npm run audit:copying
-npm run audit:source-overlap
 npm run validate
 npm run typecheck
 npm run lint
 npm run build
 ```
 
+`npm run validate` runs the content and reference-preview checks, theological-hygiene review, copying audit, and optional private-source overlap audit used by deployment. `npm run audit:humanization` remains available as an editorial report but does not alter supplied commentary or block deployment.
+
 `audit:source-overlap` checks public commentary and Word / Phrase Notes for exact, normalized, and close phrase overlap against a private corpus when source text is available under `.research/colossians-corpus/text/`. The `.research` tree is ignored by Git; source identities and research-process material must never be copied into public content.
 
-`validate:theology:draft` runs the doctrinal and attribution controls while notes are still marked `needs-source-review`; the final `validate:theology` command additionally requires every note to be promoted to `verified-seed`.
+`validate:theology:draft` runs the theological-hygiene and attribution controls while supplied notes remain marked `needs-source-review`. The final `validate:theology` command additionally requires all 95 notes to be promoted to `verified-seed` after source review.
 
 ## Deployment
 
