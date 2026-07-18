@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     default: "Colossians Commentary",
     template: "%s | Colossians Commentary"
   },
-  description: "A four-chapter study of Colossians with the King James text and space for verse-by-verse commentary.",
+  description: "A four-chapter study of Colossians with the King James text and complete verse-by-verse commentary.",
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://colossians.mybibleexplorer.com")
 };
 

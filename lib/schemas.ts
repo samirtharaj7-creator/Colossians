@@ -50,7 +50,7 @@ export const VerseEntrySchema = z.object({
   commentary: VerseCommentarySchema,
   wordNotes: z.array(WordNoteSchema).default([]),
   sourceAudit: VerseSourceAuditSchema,
-  reviewStatus: z.enum(["verified-seed", "needs-source-review", "placeholder"])
+  reviewStatus: z.literal("verified-seed")
 });
 
 export const ChapterContentSchema = z.object({

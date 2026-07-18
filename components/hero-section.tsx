@@ -17,7 +17,7 @@ const studyActions = [
   {
     title: "Verse Commentary",
     href: "/colossians/1/#v1",
-    description: "Add and study your own verse-by-verse commentary alongside the biblical text.",
+    description: "Study the complete verse-by-verse commentary alongside the biblical text.",
     icon: BookOpen
   }
 ] as const;
@@ -63,7 +63,7 @@ export function HeroSection() {
         <section className="home-chapter-study" aria-labelledby="home-chapter-title">
           <div className="home-section-split">
             <div><p className="home-section-kicker">4 chapters</p><h2 id="home-chapter-title">Choose a chapter to begin.</h2></div>
-            <p id="content-status">The complete KJV text is in place. Commentary fields are ready for your notes.</p>
+            <p id="content-status">The complete KJV text and verse-by-verse commentary are ready to explore.</p>
           </div>
           <div className="home-chapter-group-grid">
             <article className="home-chapter-group">

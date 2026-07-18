@@ -19,11 +19,13 @@ npm run lint
 npm run build
 ```
 
-`npm run validate` runs the content and reference-preview checks, theological-hygiene review, copying audit, and optional private-source overlap audit used by deployment. `npm run audit:humanization` remains available as an editorial report but does not alter supplied commentary or block deployment.
+`npm run validate` runs the importer regression test, content and reference-preview checks, the strict theological-review and review-manifest gates, the copying audit, and the optional private-source overlap audit used by deployment. `npm run audit:humanization` remains available as an editorial report and does not alter commentary or block deployment.
 
 `audit:source-overlap` checks public commentary and Word / Phrase Notes for exact, normalized, and close phrase overlap against a private corpus when source text is available under `.research/colossians-corpus/text/`. The `.research` tree is ignored by Git; source identities and research-process material must never be copied into public content.
 
-`validate:theology:draft` runs the theological-hygiene and attribution controls while supplied notes remain marked `needs-source-review`. The final `validate:theology` command additionally requires all 95 notes to be promoted to `verified-seed` after source review.
+All 95 verse notes, the four chapter introductions, and the public interface copy have completed editorial and theological review. The internal manifest at `audits/colossians-editorial-theology-review.json` records review coverage and fingerprints without exposing private research material. Scripture is the primary authority; current official Seventh-day Adventist belief statements and the voted *Methods of Bible Study* provide the denominational and interpretive baseline. Public `sources` and `sourceAudit` arrays remain empty by policy.
+
+`validate:theology:draft` remains available for future drafting. It enforces public-copy hygiene and the targeted doctrinal controls while deferring the strict review-status and manifest-integrity gates. It is not used by the deployment validation command.
 
 ## Deployment
 

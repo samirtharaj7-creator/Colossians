@@ -15,8 +15,9 @@
     "audit:humanization": "node scripts/audit-humanization.mjs",
     "audit:copying": "node scripts/audit-copying.mjs",
     "audit:source-overlap": "node scripts/audit-private-overlap.mjs",
+    "test:import-commentary": "node scripts/test-import-commentary.mjs",
     "generate:reference-previews": "node scripts/generate-reference-previews.mjs",
-    "validate": "npm run validate:content && npm run validate:reference-previews && npm run validate:theology:draft && npm run audit:copying && npm run audit:source-overlap",
+    "validate": "npm run test:import-commentary && npm run validate:content && npm run validate:reference-previews && npm run validate:theology && npm run audit:copying && npm run audit:source-overlap",
     "reset:intake": "node generate-colossians-intake.mjs",
     "import:kjv": "node import-colossians-kjv.mjs",
     "import:commentary": "node import-colossians-commentary.mjs"

@@ -1,4 +1,9 @@
 import { loadColossians } from "./colossians-content-utils.mjs";
+import {
+  SCRIPTURE_VERSE_COUNTS,
+  SINGLE_CHAPTER_BOOKS,
+  normalizeScriptureBookName
+} from "./scripture-canon.mjs";
 
 const chapters = loadColossians();
 const errors = [];
@@ -22,21 +27,14 @@ const emptyCommentaryFields = [
   "otherCommentaryInsights",
   "application"
 ];
-const allowedReviewStatuses = new Set(["verified-seed", "needs-source-review", "placeholder"]);
-const scriptureBooks = new Set([
-  "Genesis", "Exodus", "Leviticus", "Numbers", "Deuteronomy", "Joshua", "Judges", "Ruth",
-  "1 Samuel", "2 Samuel", "1 Kings", "2 Kings", "1 Chronicles", "2 Chronicles", "Ezra",
-  "Nehemiah", "Esther", "Job", "Psalm", "Psalms", "Proverbs", "Ecclesiastes",
-  "Song of Solomon", "Song of Songs", "Isaiah", "Jeremiah", "Lamentations", "Ezekiel",
-  "Daniel", "Hosea", "Joel", "Amos", "Obadiah", "Jonah", "Micah", "Nahum", "Habakkuk",
-  "Zephaniah", "Haggai", "Zechariah", "Malachi", "Matthew", "Mark", "Luke", "John", "Acts",
-  "Romans", "1 Corinthians", "2 Corinthians", "Galatians", "Ephesians", "Philippians",
-  "Colossians", "1 Thessalonians", "2 Thessalonians", "1 Timothy", "2 Timothy", "Titus",
-  "Philemon", "Hebrews", "James", "1 Peter", "2 Peter", "1 John", "2 John", "3 John",
-  "Jude", "Revelation"
-]);
-const colossiansVerseCounts = [29, 23, 25, 18];
-const singleChapterBooks = new Set(["Obadiah", "Philemon", "2 John", "3 John", "Jude"]);
+const allowedReviewStatuses = new Set(["verified-seed"]);
+const expectedChapterTitles = [
+  "The Supremacy of Christ",
+  "Complete in Christ",
+  "The New Life in Christ",
+  "Prayer, Witness, and Final Greetings"
+];
+const placeholderPattern = /\b(?:tbd|todo|placeholder|lorem ipsum|coming soon|add (?:your|the) (?:own )?(?:notes|commentary))\b/i;
 let crossReferenceTotal = 0;
 let versesWithCrossReferences = 0;
 
@@ -52,25 +50,29 @@ function validateScriptureReference(citation, context) {
     return null;
   }
 
-  const [, bookName, chapterText, startText, endText] = match;
-  if (!scriptureBooks.has(bookName)) errors.push(`${context}: unrecognized biblical book ${bookName}`);
-  if (!chapterText && !singleChapterBooks.has(bookName)) {
-    errors.push(`${context}: chapter is required for ${bookName}`);
+  const [, rawBookName, chapterText, startText, endText] = match;
+  const bookName = normalizeScriptureBookName(rawBookName);
+  const verseCounts = SCRIPTURE_VERSE_COUNTS[bookName];
+  if (!verseCounts) {
+    errors.push(`${context}: unrecognized biblical book ${rawBookName}`);
+    return null;
+  }
+  if (!chapterText && !SINGLE_CHAPTER_BOOKS.has(bookName)) {
+    errors.push(`${context}: chapter is required for ${rawBookName}`);
     return null;
   }
   const chapter = chapterText ? Number(chapterText) : 1;
   const startVerse = Number(startText);
   const endVerse = Number(endText ?? startText);
-  if (chapter < 1) errors.push(`${context}: chapter must be positive`);
-  if (startVerse < 1) errors.push(`${context}: starting verse must be positive`);
-  if (endVerse < startVerse) errors.push(`${context}: verse range is reversed`);
-
-  if (bookName === "Colossians") {
-    if (chapter > colossiansVerseCounts.length) {
-      errors.push(`${context}: Colossians has no chapter ${chapter}`);
-    } else if (endVerse > colossiansVerseCounts[chapter - 1]) {
-      errors.push(`${context}: reference exceeds Colossians ${chapter}:${colossiansVerseCounts[chapter - 1]}`);
-    }
+  if (!Number.isSafeInteger(chapter) || chapter < 1 || chapter > verseCounts.length) {
+    errors.push(`${context}: ${bookName} has no chapter ${chapter}`);
+    return null;
+  }
+  if (!Number.isSafeInteger(startVerse) || startVerse < 1) errors.push(`${context}: starting verse must be positive`);
+  if (!Number.isSafeInteger(endVerse) || endVerse < startVerse) errors.push(`${context}: verse range is reversed`);
+  const chapterVerseCount = verseCounts[chapter - 1];
+  if (startVerse > chapterVerseCount || endVerse > chapterVerseCount) {
+    errors.push(`${context}: reference exceeds ${bookName} ${chapter}:${chapterVerseCount}`);
   }
 
   return { bookName, chapter, startVerse, endVerse };
@@ -107,16 +109,53 @@ function validatePrivateFieldsAreEmpty(value, field, errors) {
 
 for (const { chapterNumber, expectedVerses, path, content } of chapters) {
   if (content.chapterNumber !== chapterNumber) errors.push(`${path}: chapterNumber must be ${chapterNumber}`);
+  if (!Array.isArray(content.verses)) {
+    errors.push(`${path}: verses must be an array`);
+    continue;
+  }
   if (content.verses.length !== expectedVerses) errors.push(`${path}: expected ${expectedVerses} verses, found ${content.verses.length}`);
-  if (!content.title?.trim()) errors.push(`${path}: title must be populated`);
+  if (content.title !== expectedChapterTitles[chapterNumber - 1]) {
+    errors.push(`${path}: title must be ${JSON.stringify(expectedChapterTitles[chapterNumber - 1])}; found ${JSON.stringify(content.title)}`);
+  }
+
+  if (!Array.isArray(content.outline)) {
+    errors.push(`${path}: outline must be an array`);
+  } else {
+    content.outline.forEach((section, outlineIndex) => {
+      const range = section?.range?.match(/^(\d+):(\d+)(?:[-–—](\d+))?$/u);
+      if (!range) {
+        errors.push(`${path}: outline[${outlineIndex}].range is invalid`);
+        return;
+      }
+      const [, outlineChapterText, startText, endText] = range;
+      const outlineChapter = Number(outlineChapterText);
+      const startVerse = Number(startText);
+      const endVerse = Number(endText ?? startText);
+      if (outlineChapter !== chapterNumber || startVerse < 1 || endVerse < startVerse || endVerse > expectedVerses) {
+        errors.push(`${path}: outline[${outlineIndex}].range falls outside Colossians ${chapterNumber}:1-${expectedVerses}`);
+      }
+      if (!section.title?.trim() || !section.summary?.trim()) {
+        errors.push(`${path}: outline[${outlineIndex}] must contain a title and summary`);
+      }
+    });
+  }
 
   verseTotal += content.verses.length;
   content.verses.forEach((verse, index) => {
     const expectedReference = `Colossians ${chapterNumber}:${index + 1}`;
     if (verse.verse !== expectedReference) errors.push(`${path}: found ${verse.verse}; expected ${expectedReference}`);
     if (!verse.bibleText?.trim()) errors.push(`${expectedReference}: missing KJV text`);
-    if (!verse.commentary?.detailedExplanation?.trim()) errors.push(`${expectedReference}: missing detailed commentary`);
-    if (!allowedReviewStatuses.has(verse.reviewStatus)) errors.push(`${expectedReference}: invalid reviewStatus ${verse.reviewStatus}`);
+    else if (placeholderPattern.test(verse.bibleText)) errors.push(`${expectedReference}: KJV text contains placeholder language`);
+    const detailedExplanation = verse.commentary?.detailedExplanation?.trim() ?? "";
+    if (!detailedExplanation) errors.push(`${expectedReference}: missing detailed commentary`);
+    else {
+      const wordCount = detailedExplanation.split(/\s+/u).filter(Boolean).length;
+      if (wordCount < 100) errors.push(`${expectedReference}: detailed commentary is not substantive (${wordCount} words; expected at least 100)`);
+      if (placeholderPattern.test(detailedExplanation)) errors.push(`${expectedReference}: detailed commentary contains placeholder language`);
+    }
+    if (!allowedReviewStatuses.has(verse.reviewStatus)) {
+      errors.push(`${expectedReference}: reviewStatus must be verified-seed, found ${verse.reviewStatus}`);
+    }
 
     for (const field of emptyVerseFields) {
       if (verse[field]?.trim()) errors.push(`${expectedReference}: public prose must remain in commentary.detailedExplanation; ${field} is populated`);
@@ -150,6 +189,10 @@ for (const { chapterNumber, expectedVerses, path, content } of chapters) {
       }
     });
 
+    if (!Array.isArray(verse.wordNotes)) {
+      errors.push(`${expectedReference}: wordNotes must be an array`);
+      return;
+    }
     if (verse.wordNotes.length > 2) errors.push(`${expectedReference}: wordNotes may contain at most two entries`);
     const wordNoteTerms = new Set();
     verse.wordNotes.forEach((note, noteIndex) => {
@@ -163,6 +206,10 @@ for (const { chapterNumber, expectedVerses, path, content } of chapters) {
         errors.push(`${label}.term must pair Greek text with a transliteration`);
       }
       const scriptureReferences = new Set();
+      if (!Array.isArray(note.scriptureReferences)) {
+        errors.push(`${label}.scriptureReferences must be an array`);
+        return;
+      }
       for (const reference of note.scriptureReferences) {
         validateScriptureReference(reference, `${label}.scriptureReferences`);
         if (scriptureReferences.has(reference)) errors.push(`${label}.scriptureReferences contains a duplicate reference: ${reference}`);
