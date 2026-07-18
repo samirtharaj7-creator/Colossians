@@ -45,7 +45,7 @@ export function SiteHeader() {
         <button
           type="button"
           className="reader-menu-button"
-          aria-label="Open menu"
+          aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           onClick={() => setOpen((value) => !value)}
         >
