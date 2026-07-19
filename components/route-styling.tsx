@@ -12,6 +12,12 @@ export function RouteStyling() {
     const path = pathname.replace(/\/$/, "") || "/";
     const chapterMatch = path.match(/^\/colossians\/(\d+)$/);
 
+    const resetReaderViewport = () => {
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+      html.scrollTop = 0;
+      body.scrollTop = 0;
+    };
+
     html.classList.add("dark");
     html.style.colorScheme = "dark";
     body.classList.add("mbe-shell-managed");
@@ -23,6 +29,7 @@ export function RouteStyling() {
     else if (chapterMatch) {
       body.dataset.colossiansRoute = "commentary";
       body.dataset.colossiansChapter = chapterMatch[1];
+      resetReaderViewport();
     } else body.removeAttribute("data-colossians-route");
   }, [pathname]);
 

@@ -63,7 +63,7 @@ export function ChapterStudy({
       if (match) {
         setSelectedVerseRef(match.verse);
         window.requestAnimationFrame(() => {
-          document.getElementById(slugify(match.verse))?.scrollIntoView({ block: "center" });
+          scrollVerseButtonIntoPane(match.verse, "auto");
         });
       }
     }
@@ -418,6 +418,24 @@ function FontScaleControls({
   );
 }
 
+function getVerseButtonElement(verse: string) {
+  if (typeof document === "undefined") return null;
+  return document.querySelector<HTMLElement>(`[data-verse-id="${slugify(verse)}"]`);
+}
+
+function scrollVerseButtonIntoPane(verse: string, behavior: ScrollBehavior) {
+  const target = getVerseButtonElement(verse);
+  const pane = target?.closest<HTMLElement>(".scripture-pane-body");
+  if (!target || !pane) return;
+
+  const targetRect = target.getBoundingClientRect();
+  const paneRect = pane.getBoundingClientRect();
+  pane.scrollTo({
+    top: pane.scrollTop + targetRect.top - paneRect.top - (pane.clientHeight - targetRect.height) / 2,
+    behavior
+  });
+}
+
 function VerseButton({ index, verse, active, onSelect }: { index: number; verse: PublicVerseEntry; active: boolean; onSelect: () => void }) {
   const verseId = slugify(verse.verse);
 
@@ -425,7 +443,7 @@ function VerseButton({ index, verse, active, onSelect }: { index: number; verse:
     <button
       aria-controls={`${verseId}-notes`}
       aria-expanded={active}
-      id={verseId}
+      data-verse-id={verseId}
       className={active ? "scripture-card scripture-card-active" : "scripture-card"}
       onClick={onSelect}
       type="button"

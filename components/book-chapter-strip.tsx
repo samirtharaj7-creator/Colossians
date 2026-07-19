@@ -110,15 +110,14 @@ export function BookChapterStrip({
         return;
       }
 
-      const verseButtonId = referenceHash(bookName, chapter, verse);
-      const verseButton = document.getElementById(verseButtonId);
+      const verseButton = getVerseButtonElement(bookName, chapter, verse);
       verseButton?.click();
 
       setSelectedVerse(verse);
       setInputValue(formatReference(inputBookName, chapter, verse));
       window.history.replaceState(null, "", `#v${verse}`);
       window.requestAnimationFrame(() => {
-        verseButton?.scrollIntoView({ block: "center", behavior: "smooth" });
+        scrollVerseButtonIntoPane(bookName, chapter, verse, "smooth");
       });
     },
     [activeChapter, addRecentReference, bookName, bookSlug, inputBookName, isValidReference]
@@ -442,6 +441,24 @@ function abbreviateBookName(bookName: string) {
 
 function referenceHash(bookName: string, chapter: number, verse: number) {
   return slugify(formatReference(bookName, chapter, verse));
+}
+
+function getVerseButtonElement(bookName: string, chapter: number, verse: number) {
+  if (typeof document === "undefined") return null;
+  return document.querySelector<HTMLElement>(`[data-verse-id="${referenceHash(bookName, chapter, verse)}"]`);
+}
+
+function scrollVerseButtonIntoPane(bookName: string, chapter: number, verse: number, behavior: ScrollBehavior) {
+  const target = getVerseButtonElement(bookName, chapter, verse);
+  const pane = target?.closest<HTMLElement>(".scripture-pane-body");
+  if (!target || !pane) return;
+
+  const targetRect = target.getBoundingClientRect();
+  const paneRect = pane.getBoundingClientRect();
+  pane.scrollTo({
+    top: pane.scrollTop + targetRect.top - paneRect.top - (pane.clientHeight - targetRect.height) / 2,
+    behavior
+  });
 }
 
 function verseFromHash(hash: string, currentChapter: number) {
