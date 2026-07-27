@@ -640,6 +640,8 @@ body[data-colossians-chapter] .split-reader {
   --scripture-mobile-font-size: 1.125rem;
   --scripture-desktop-font-size: 1.25rem;
   --notes-font-size: 1.125rem;
+  --reader-bottom-cushion: 3rem;
+  --reader-footer-cushion: calc(var(--reader-footer-height, 6.5rem) + 2.5rem);
 }
 
 body[data-colossians-chapter] .scripture-pane,
@@ -667,7 +669,8 @@ body[data-colossians-chapter] .exposition-card-heading h2 {
 }
 
 body[data-colossians-chapter] .scripture-pane-body {
-  padding: 1.5rem clamp(1.5rem, 3vw, 2.5rem) 0 !important;
+  padding: 1.5rem clamp(1.5rem, 3vw, 2.5rem) var(--reader-bottom-cushion, 3rem) !important;
+  scroll-padding-bottom: var(--reader-bottom-cushion, 3rem) !important;
 }
 
 body[data-colossians-chapter] .scripture-pane-header {
@@ -943,6 +946,24 @@ body[data-colossians-chapter] .scripture-list {
   color: hsl(41 44% 89%) !important;
 }
 
+body[data-colossians-chapter] .scripture-list::after,
+body[data-colossians-chapter] .commentary-shell::after {
+  display: block !important;
+  height: var(--reader-bottom-cushion, 3rem) !important;
+  content: "" !important;
+}
+
+body[data-colossians-chapter][data-reader-footer-visible] .scripture-pane-body,
+body[data-colossians-chapter][data-reader-footer-visible] .commentary-pane-body {
+  padding-bottom: var(--reader-footer-cushion, calc(var(--reader-footer-height, 6.5rem) + 2.5rem)) !important;
+  scroll-padding-bottom: var(--reader-footer-cushion, calc(var(--reader-footer-height, 6.5rem) + 2.5rem)) !important;
+}
+
+body[data-colossians-chapter][data-reader-footer-visible] .scripture-list::after,
+body[data-colossians-chapter][data-reader-footer-visible] .commentary-shell::after {
+  height: var(--reader-footer-cushion, calc(var(--reader-footer-height, 6.5rem) + 2.5rem)) !important;
+}
+
 body[data-colossians-chapter] .mobile-verse-notes {
   display: none;
 }
@@ -1001,7 +1022,8 @@ body[data-colossians-chapter] .reader-pane-kicker svg {
 }
 
 body[data-colossians-chapter] .commentary-pane-body {
-  padding: 1.25rem !important;
+  padding: 1.25rem 1.25rem var(--reader-bottom-cushion, 3rem) !important;
+  scroll-padding-bottom: var(--reader-bottom-cushion, 3rem) !important;
 }
 
 body[data-colossians-chapter] .exposition-card {
