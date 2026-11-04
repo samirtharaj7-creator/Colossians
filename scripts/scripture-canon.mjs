@@ -271,7 +271,7 @@ export const SCRIPTURE_VERSE_COUNTS = {
     58,
     30,
     24,
-    43,
+    42,
     15,
     23,
     29,
@@ -332,7 +332,7 @@ export const SCRIPTURE_VERSE_COUNTS = {
     21,
     43,
     29,
-    54
+    53
   ],
   "2 Kings": [
     18,
@@ -1008,7 +1008,7 @@ export const SCRIPTURE_VERSE_COUNTS = {
   ],
   "Matthew": [
     25,
-    22,
+    23,
     17,
     25,
     48,
@@ -1028,11 +1028,11 @@ export const SCRIPTURE_VERSE_COUNTS = {
     30,
     34,
     46,
-    45,
+    46,
     39,
     51,
     46,
-    74,
+    75,
     66,
     20
   ],
@@ -1040,11 +1040,11 @@ export const SCRIPTURE_VERSE_COUNTS = {
     45,
     28,
     35,
-    40,
+    41,
     43,
     56,
-    36,
     37,
+    38,
     50,
     52,
     33,
@@ -1291,7 +1291,7 @@ export const SCRIPTURE_VERSE_COUNTS = {
     13
   ],
   "3 John": [
-    15
+    14
   ],
   "Jude": [
     25
@@ -1308,7 +1308,7 @@ export const SCRIPTURE_VERSE_COUNTS = {
     21,
     11,
     19,
-    18,
+    17,
     18,
     20,
     8,
